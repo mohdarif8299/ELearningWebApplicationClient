@@ -1,0 +1,27 @@
+.card {
+  border-radius: 0px !important;
+}
+.is-closed {
+  background-color: #f7f8fa;
+  cursor: pointer;
+  padding: 10px;
+}
+.is-open {
+  display: inherit;
+  background-color: #f7f8fa;
+  cursor: pointer;
+  padding: 10px;
+}
+.MuiAccordion-rounded:last-child {
+  border-bottom-left-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+}
+.MuiAccordion-rounded:first-child {
+  border-top-left-radius: 0px !important;
+  border-top-right-radius: 0px !important;
+}
+.MuiAccordionSummary-root {
+  display: contents;
+  padding: 5px !important;
+  background-color: #f7f8fa !important;
+}

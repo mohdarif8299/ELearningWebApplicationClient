@@ -4,9 +4,6 @@ import { Route, withRouter, Switch } from "react-router-dom";
 
 import { getCurrentUser } from "../util/APIUtils";
 import { ACCESS_TOKEN } from "../constants";
-
-import PollList from "../poll/PollList";
-import NewPoll from "../poll/NewPoll";
 import Login from "../user/login/Login";
 import Signup from "../user/signup/Signup";
 import Profile from "../user/profile/Profile";
@@ -29,6 +26,7 @@ class App extends Component {
     };
     this.handleLogout = this.handleLogout.bind(this);
     this.loadCurrentUser = this.loadCurrentUser.bind(this);
+    console.log(getCurrentUser());
     this.handleLogin = this.handleLogin.bind(this);
 
     notification.config({
@@ -62,7 +60,7 @@ class App extends Component {
   }
 
   handleLogout(
-    redirectTo = "/",
+    redirectTo = "/login",
     notificationType = "success",
     description = "You're successfully logged out."
   ) {
@@ -74,11 +72,6 @@ class App extends Component {
     });
 
     this.props.history.push(redirectTo);
-
-    notification[notificationType]({
-      message: "Polling App",
-      description: description,
-    });
   }
 
   handleLogin() {
@@ -146,12 +139,6 @@ class App extends Component {
                   />
                 )}
               ></Route>
-              <PrivateRoute
-                authenticated={this.state.isAuthenticated}
-                path="/poll/new"
-                component={NewPoll}
-                handleLogout={this.handleLogout}
-              ></PrivateRoute>
               <Route component={NotFound}></Route>
             </Switch>
           </div>

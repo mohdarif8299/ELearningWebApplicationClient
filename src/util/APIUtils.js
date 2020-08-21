@@ -35,27 +35,39 @@ export function getAllPolls(page, size) {
   });
 }
 
-export default function getAllCourses() {
+export default function getAllCourses(username) {
   return request({
-    url: API_BASE_URL + "/courses/allcourses",
+    url: API_BASE_URL + "/courses/course?username=" + username,
     method: "POST",
   });
 }
-export function getAllCategories() {
+export function getAllCategoriesByCourseId(courseId) {
   return request({
-    url: API_BASE_URL + "/courses/allcategories",
+    url: API_BASE_URL + "/courses/category?courseId=" + courseId,
     method: "POST",
   });
 }
-export function getCourseTitlesByCategoryId(categoryId) {
+export function getVideoStream() {
   return request({
-    url: API_BASE_URL + "/courses/coursetitles?categoryId=" + categoryId,
+    url: API_BASE_URL + "/courses/video",
     method: "POST",
   });
 }
-export function getCourseById(courseId) {
+export function getTopicsByCategoryId(categoryId) {
   return request({
-    url: API_BASE_URL + "/courses/course?courseId=" + courseId,
+    url: API_BASE_URL + "/courses/topics?categoryId=" + categoryId,
+    method: "POST",
+  });
+}
+export function getTopicById(topicId) {
+  return request({
+    url: API_BASE_URL + "/courses/topic?topicId=" + topicId,
+    method: "POST",
+  });
+}
+export function getTopicByCategoryId(categoryId) {
+  return request({
+    url: API_BASE_URL + "/courses/topic?categoryId=" + categoryId,
     method: "POST",
   });
 }
